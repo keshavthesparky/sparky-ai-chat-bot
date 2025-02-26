@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Login | AI Chat Bot</title>
+     <!-- ✅ Browser Tab Icon (Favicon) -->
+    <link rel="icon" type="image/png" href="image\cg.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="auth-section">
+            
+            <!-- Logo Image -->
+            <img src="image\kj.png" alt="Sparkay Chat Bot Logo" class="logo">
+
+            <!-- Welcome Text -->
+            <h2>Welcome to Sparkay Chat Bot</h2>
+            <p>Login to continue</p>
+
+            <div id="signup-form">
+                <input type="text" id="signup-username" placeholder="Username">
+                <input type="email" id="signup-email" placeholder="Email">
+                <input type="password" id="signup-password" placeholder="Password">
+                <button id="signup-button">Sign up</button>
+            </div>
+            
+            <div id="signin-form">
+                <input type="email" id="signin-email" placeholder="Email">
+                <input type="password" id="signin-password" placeholder="Password">
+                <button id="signin-button">Sign in</button>
+            </div>
+
+            <button id="toggle-auth">Switch to Sign In</button>
+        </div>
+    </div>
+
+    <!-- Firebase Scripts -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
+
+        document.addEventListener("DOMContentLoaded", () => {
+            // Firebase Configuration
+            const firebaseConfig = {
+                apiKey: "AIzaSyDxMx6Z2mw3dUilPF9QW7oPjXtCRLEHxGg",
+                authDomain: "chatbot55.firebaseapp.com",
+                databaseURL: "https://chatbot55-default-rtdb.firebaseio.com",
+                projectId: "chatbot55",
+                storageBucket: "chatbot55.firebasestorage.app",
+                messagingSenderId: "98205443506",
+                appId: "1:98205443506:web:3b2c3cab647621f43670ab",
+                measurementId: "G-Q914QY8EW2"
+            };
+
+            // Firebase Initialize
+            const app = initializeApp(firebaseConfig);
+            const auth = getAuth(app);
+
+            // Sign Up Function
+            document.getElementById('signup-button').addEventListener('click', () => {
+                const email = document.getElementById('signup-email').value;
+                const password = document.getElementById('signup-password').value;
+                createUserWithEmailAndPassword(auth, email, password)
+                    .then(() => alert('✅ Signup successful!'))
+                    .catch(error => alert('❌ Signup error: ' + error.message));
+            });
+
+            // Sign In Function
+            document.getElementById('signin-button').addEventListener('click', () => {
+                const email = document.getElementById('signin-email').value;
+                const password = document.getElementById('signin-password').value;
+                signInWithEmailAndPassword(auth, email, password)
+                    .then(() => {
+                        console.log('✅ Login successful!');
+                        window.location.href = 'chat.html';
+                    })
+                    .catch(error => alert('❌ Signin error: ' + error.message));
+            });
+
+            // Authentication State Listener
+            onAuthStateChanged(auth, user => {
+                if (!user && window.location.pathname !== "/index.html") {
+                    window.location.href = 'index.html';
+                }
+            });
+
+        });
+    </script>
+</body>
+</html>

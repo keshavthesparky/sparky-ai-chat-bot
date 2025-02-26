@@ -1,0 +1,63 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | AI Chat Bot</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- ✅ Correct Font Awesome Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="chat.html">Chat</a>
+        <a href="history.html">History</a>
+        <a href="about.html">About</a>
+        <button id="logout-button">Logout</button>
+    </div>
+
+    <!-- About Section -->
+    <div class="container">
+        <h2>Developed By</h2>
+        <p>🚀 This AI Chat Bot was developed by:</p>
+
+        <div class="developer">
+            <h3>Keshav Jain</h3>
+            <img src="image/keshav.png" alt="Developer" class="developer-pic">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/keshav-jain-4b19ba27b" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/hy_keshav_18" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+
+        <div class="developer">
+            <h3>Dinesh Dangi</h3>
+            <img src="image/dinesh.png" alt="Developer" class="developer-pic">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/dinesh-dangi-474098350" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/__dinesh__5050" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ✅ Logout Button Functionality (Redirect to index.html)
+        document.getElementById("logout-button").addEventListener("click", function() {
+            alert("Logging out...");
+            localStorage.clear();
+            window.location.href = "index.html"; // ✅ Fixed Redirect to index.html
+        });
+
+        // ✅ Logout on F1 Key Press
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "F1") {
+                event.preventDefault(); // Prevent default browser help action
+                alert("Logging out...");
+                localStorage.clear();
+                window.location.href = "index.html"; // ✅ Redirect to index.html
+            }
+        });
+    </script>
+</body>
+</html>

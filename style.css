@@ -1,0 +1,260 @@
+/* ✅ General Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(45, 52, 59);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ✅ Logo Styling */
+.logo {
+  width: 120px;  /* Logo width */
+  height: auto;  /* Maintain aspect ratio */
+  display: block;  
+  margin: 20px auto; /* Center align */
+}
+
+/* ✅ Main Container */
+.container {
+  width: 90%;
+  max-width: 600px;
+  background-color: #333;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* ✅ Authentication Section */
+.auth-section input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #444;
+  border: none;
+  color: white;
+  border-radius: 5px;
+}
+
+.auth-section button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+/* ✅ Navbar */
+.navbar {
+  width: 100%;
+  padding: 15px;
+  background-color: #222;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: white;
+  padding: 10px 15px;
+  background-color: #007bff;
+  border-radius: 5px;
+}
+
+.navbar button {
+  padding: 10px;
+  background-color: red;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* ✅ Chat Area - Full Page Width and Height */
+.chat-area {
+  width: 100%;
+  height: calc(100vh - 60px); /* Adjusted for navbar */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ✅ Chat Container - Full Height */
+.chat-container {
+  width: 90%;
+  max-width: 1200px; /* Increase max width */
+  height: 85vh; /* Almost full page height */
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background-color: #222;
+  border-radius: 10px;
+}
+
+/* ✅ Responsive Design Fix */
+@media (max-width: 768px) {
+  .chat-container {
+    width: 100%;
+    height: 90vh;
+    border-radius: 0; /* Remove border-radius for full screen */
+  }
+}
+
+/* ✅ User & Bot Image Size Fix */
+.chat-avatar {
+  width: 40px;  
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover; /* Image ka aspect ratio maintain hoga */
+}
+
+/* ✅ Uploaded Image Size Fix */
+.uploaded-image {
+  max-width: 200px;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* ✅ Microphone Icon Size Fix */
+#microphone-button img {
+  width: 35px;
+  height: 35px;
+}
+
+/* ✅ Chat Message Box */
+.user-chat-box,
+.ai-chat-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-chat-area,
+.ai-chat-area {
+  max-width: 75%;
+  background-color: #333;
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+}
+
+/* ✅ Chat GIF Loader Fix */
+.loading-gif {
+  width: 30px;  /* Smaller size */
+  height: 30px;
+  display: block;
+}
+
+/* ✅ Input and Button Styling */
+.prompt-area {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.prompt-area input {
+  flex-grow: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #444;
+  color: white;
+}
+
+.prompt-area button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* ✅ Logout Button */
+#logout-button {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: red;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* ✅ Chat History */
+#history-list {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+
+#history-list li {
+  background-color: #444;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* ✅ About Section */
+#about-section {
+  text-align: center;
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #333;
+  border-radius: 10px;
+}
+
+/* ✅ Developer Section */
+.developer {
+  margin: 15px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ✅ Developer Profile Pic */
+.developer-pic {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid white;
+  margin-bottom: 10px;
+  object-fit: cover;
+}
+
+/* ✅ Developer Name */
+.developer p {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+/* ✅ Links Styling */
+#about-section a {
+  display: inline-block;
+  margin: 5px;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#about-section a:hover {
+  text-decoration: underline;
+}
+

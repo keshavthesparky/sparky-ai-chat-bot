@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat | AI Chat Bot</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navbar">
+        <a href="chat.html">Chat</a>
+        <a href="history.html">History</a>
+        <a href="about.html">About</a>
+        <button id="logout-button">Logout</button>
+    </div>
+
+    <div class="container">
+        <div class="chat-area">
+            <div class="chat-container"></div>  <!-- Chat Box -->
+            <div class="prompt-area">
+                <input type="text" id="prompt" placeholder="Message...">
+                <button id="image"><img src="image/img.svg" alt="Upload"></button>
+                <input type="file" accept="image/*" hidden id="image-input">
+                <button id="microphone-button"><img src="image\microphone-svgrepo-com.svg11.svg" alt="Mic"></button>
+                <button id="submit"><img src="image/submit.svg" alt="Send"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase Config & Authentication -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
+        import { getAuth, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDxMx6Z2mw3dUilPF9QW7oPjXtCRLEHxGg",
+            authDomain: "chatbot55.firebaseapp.com",
+            databaseURL: "https://chatbot55-default-rtdb.firebaseio.com",
+            projectId: "chatbot55",
+            storageBucket: "chatbot55.firebasestorage.app",
+            messagingSenderId: "98205443506",
+            appId: "1:98205443506:web:3b2c3cab647621f43670ab",
+            measurementId: "G-Q914QY8EW2"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        // Logout function
+        document.getElementById("logout-button").addEventListener("click", () => {
+            signOut(auth).then(() => {
+                window.location.href = "index.html";
+            }).catch(error => {
+                console.error("Logout Error:", error);
+            });
+        });
+
+        // Auth state listener
+        onAuthStateChanged(auth, (user) => {
+            if (!user) {
+                window.location.href = "index.html"; // Redirect if not logged in
+            }
+        });
+    </script>
+
+    <!-- Chat Functionality -->
+    <script type="module" src="chat.js"></script>
+
+
+</body>
+</html>
